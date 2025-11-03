@@ -17,9 +17,9 @@ const Home = () => {
       {/* Hero Section avec Carousel */}
       <section className="relative h-[600px] md:h-[700px] overflow-hidden">
         <Carousel images={heroImages} autoPlay={true} interval={6000} />
-        <div className="absolute inset-0 bg-gradient-to-r from-marron-900/70 to-transparent flex items-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-marron-900/70 to-transparent flex items-center justify-center">
           <div className="container mx-auto px-4 z-10">
-            <div className="max-w-2xl">
+            <div className="max-w-2xl mx-auto text-center md:text-left">
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-4">
                 Menuiserie Koffi
               </h1>
@@ -30,7 +30,7 @@ const Home = () => {
                 Plus de 25 ans d'expérience dans l'artisanat du bois. Nous créons des meubles uniques 
                 alliant tradition et modernité. Chaque pièce est façonnée avec passion et savoir-faire artisanal.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <Link to="/produits" className="btn-primary inline-block text-center">
                   <i className="fas fa-tools mr-2"></i>
                   Découvrir nos créations
