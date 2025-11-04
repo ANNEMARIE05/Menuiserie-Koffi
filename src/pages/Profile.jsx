@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
 
-const Profile = () => {
+export default function Profile() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
@@ -206,7 +206,5 @@ const Profile = () => {
       </div>
     </DashboardLayout>
   );
-};
-
-export default Profile;
+}
 

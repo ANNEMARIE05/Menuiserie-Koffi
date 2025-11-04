@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
 
-const ViewDevis = () => {
+export default function ViewDevis() {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -131,7 +131,5 @@ const ViewDevis = () => {
       </div>
     </DashboardLayout>
   );
-};
-
-export default ViewDevis;
+}
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
 
-const EditDevis = () => {
+export default function EditDevis() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -248,7 +248,5 @@ const EditDevis = () => {
       </div>
     </DashboardLayout>
   );
-};
-
-export default EditDevis;
+}
 

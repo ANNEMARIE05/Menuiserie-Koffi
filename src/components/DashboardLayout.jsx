@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
 
-const DashboardLayout = ({ children }) => {
+export default function DashboardLayout({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userPhone, setUserPhone] = useState('');
   const [userName, setUserName] = useState('');
@@ -114,7 +114,5 @@ const DashboardLayout = ({ children }) => {
       </div>
     </div>
   );
-};
-
-export default DashboardLayout;
+}
 

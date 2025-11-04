@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ProductCard from '../components/ProductCard';
 import { products, categories } from '../data/products';
 
-const Products = () => {
+export default function Products() {
   const [categorie, setCategorie] = useState('Tous');
   const [recherche, setRecherche] = useState('');
 
@@ -90,7 +90,7 @@ const Products = () => {
         </div>
 
         {/* Grille de produits */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">  
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8 auto-rows-fr">  
           {produitsFiltres.map((produit) => (
             <ProductCard key={produit.id} product={produit} />
           ))}
@@ -98,7 +98,5 @@ const Products = () => {
       </div>
     </div>
   );
-};
-
-export default Products;
+}
 

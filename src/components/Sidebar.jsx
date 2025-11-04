@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-const Sidebar = ({ isOpen, onClose }) => {
+export default function Sidebar({ isOpen, onClose }) {
   const location = useLocation();
 
   const menuItems = [
@@ -100,7 +100,5 @@ const Sidebar = ({ isOpen, onClose }) => {
       </aside>
     </>
   );
-};
-
-export default Sidebar;
+}
 

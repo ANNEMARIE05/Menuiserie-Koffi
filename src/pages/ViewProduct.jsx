@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
 import { products } from '../data/products';
 
-const ViewProduct = () => {
+export default function ViewProduct() {
   const { id } = useParams();
   const navigate = useNavigate();
   const product = products.find(p => p.id === parseInt(id));
@@ -86,6 +86,13 @@ const ViewProduct = () => {
                   </span>
                 </div>
 
+                {product.dimension && (
+                  <div className="mb-6">
+                    <h3 className="text-lg font-semibold text-marron-800 mb-2">Dimensions</h3>
+                    <p className="text-gray-600">{product.dimension}</p>
+                  </div>
+                )}
+
                 <div className="mb-6">
                   <h3 className="text-lg font-semibold text-marron-800 mb-2">Description courte</h3>
                   <p className="text-gray-600">{product.description}</p>
@@ -121,6 +128,4 @@ const ViewProduct = () => {
     </DashboardLayout>
   );
 };
-
-export default ViewProduct;
 

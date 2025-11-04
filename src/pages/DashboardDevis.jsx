@@ -5,7 +5,7 @@ import Pagination from '../components/Pagination';
 
 const ITEMS_PER_PAGE = 10;
 
-const DashboardDevis = () => {
+export default function DashboardDevis() {
   const navigate = useNavigate();
   const [devis, setDevis] = useState([
     {
@@ -214,7 +214,5 @@ const DashboardDevis = () => {
       </div>
     </DashboardLayout>
   );
-};
-
-export default DashboardDevis;
+}
 

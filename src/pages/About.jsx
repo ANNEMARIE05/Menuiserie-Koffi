@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const About = () => {
+export default function About() {
   return (
     <div className="py-12 bg-gray-50 min-h-screen">
       <div className="container mx-auto px-4">
@@ -239,7 +239,5 @@ const About = () => {
       </div>
     </div>
   );
-};
-
-export default About;
+}
 

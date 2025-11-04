@@ -3,7 +3,7 @@ import DashboardLayout from '../components/DashboardLayout';
 import { categories } from '../data/products';
 import { products } from '../data/products';
 
-const Categories = () => {
+export default function Categories() {
   const [newCategory, setNewCategory] = useState('');
   const [message, setMessage] = useState({ type: '', text: '' });
 
@@ -115,7 +115,5 @@ const Categories = () => {
       </div>
     </DashboardLayout>
   );
-};
-
-export default Categories;
+}
 

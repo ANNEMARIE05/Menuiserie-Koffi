@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { products } from '../data/products';
 import { openWhatsApp } from '../utils/whatsapp';
 
-const Devis = () => {
+export default function Devis() {
   const [donneesFormulaire, setDonneesFormulaire] = useState({
     name: '',
     phone: '',
     email: '',
     address: '',
     projectType: '',
+    dimension: '',
     description: '',
     selectedProducts: [],
     customImages: []
@@ -81,7 +82,11 @@ const Devis = () => {
     if (donneesFormulaire.email) message += `Email: ${donneesFormulaire.email}\n`;
     if (donneesFormulaire.address) message += `Adresse: ${donneesFormulaire.address}\n\n`;
     
-    message += `📦 *Type de projet:* ${donneesFormulaire.projectType || 'Non spécifié'}\n\n`;
+    message += `📐 *Type de projet:* ${donneesFormulaire.projectType || 'Non spécifié'}\n\n`;
+    
+    if (donneesFormulaire.dimension) {
+      message += `📏 *Dimensions:* ${donneesFormulaire.dimension}\n\n`;
+    }
     
     if (idsProduitsSelectionnes.length > 0) {
       message += `🛒 *Produits sélectionnés:*\n`;
@@ -115,6 +120,7 @@ const Devis = () => {
         email: '',
         address: '',
         projectType: '',
+        dimension: '',
         description: '',
         selectedProducts: [],
         customImages: []
@@ -304,6 +310,21 @@ const Devis = () => {
               </select>
             </div>
 
+            <div className="mb-4 md:mb-6">
+              <label htmlFor="dimension" className="block text-xs md:text-sm font-semibold text-marron-700 mb-2">
+                Dimensions (optionnel)
+              </label>
+              <input
+                type="text"
+                id="dimension"
+                name="dimension"
+                value={donneesFormulaire.dimension}
+                onChange={gererChangement}
+                className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-marron-500 focus:border-transparent text-sm md:text-base"
+                placeholder="Ex: 200cm x 80cm x 40cm (Longueur x Largeur x Hauteur)"
+              />
+            </div>
+
             <div>
               <label htmlFor="description" className="block text-xs md:text-sm font-semibold text-marron-700 mb-2">
                 Description détaillée du projet *
@@ -425,6 +446,7 @@ const Devis = () => {
                   email: '',
                   address: '',
                   projectType: '',
+                  dimension: '',
                   description: '',
                   selectedProducts: [],
                   customImages: []
@@ -443,6 +465,4 @@ const Devis = () => {
     </div>
   );
 };
-
-export default Devis;
 

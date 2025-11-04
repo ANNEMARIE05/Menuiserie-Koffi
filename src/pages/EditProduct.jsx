@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
 import { products, categories } from '../data/products';
 
-const EditProduct = () => {
+export default function EditProduct() {
   const { id } = useParams();
   const navigate = useNavigate();
   const product = products.find(p => p.id === parseInt(id));
@@ -14,6 +14,7 @@ const EditProduct = () => {
     category: '',
     price: '',
     description: '',
+    dimension: '',
     longDescription: '',
     features: '',
     images: []
@@ -27,6 +28,7 @@ const EditProduct = () => {
         category: product.category || '',
         price: product.price || '',
         description: product.description || '',
+        dimension: product.dimension || '',
         longDescription: product.longDescription || '',
         features: product.features ? product.features.join(', ') : '',
         images: product.images || []
@@ -222,6 +224,20 @@ const EditProduct = () => {
                     />
                   </div>
 
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Dimensions
+                    </label>
+                    <input
+                      type="text"
+                      name="dimension"
+                      value={formData.dimension}
+                      onChange={handleChange}
+                      placeholder="Ex: 200x100cm ou Personnalisables"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-kaki-500 focus:border-transparent"
+                    />
+                  </div>
+
                   <div className="md:col-span-2">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Description longue
@@ -329,7 +345,5 @@ const EditProduct = () => {
       </div>
     </DashboardLayout>
   );
-};
-
-export default EditProduct;
+}
 

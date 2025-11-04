@@ -40,7 +40,7 @@ src/
 ├── components/     # Composants réutilisables
 ├── pages/         # Pages de l'application
 ├── data/          # Données des produits
-└── App.js         # Composant principal
+└── App.jsx        # Composant principal
 ```
 
 ## Images

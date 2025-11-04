@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Pagination = ({ currentPage, totalPages, onPageChange }) => {
+export default function Pagination({ currentPage, totalPages, onPageChange }) {
   const pages = [];
   const maxVisible = 5;
 
@@ -78,7 +78,5 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       </button>
     </div>
   );
-};
-
-export default Pagination;
+}
 

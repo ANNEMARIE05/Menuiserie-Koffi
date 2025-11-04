@@ -55,13 +55,11 @@ function AppContent() {
   );
 }
 
-function App() {
+export default function App() {
   return (
     <Router>
       <AppContent />
     </Router>
   );
 }
-
-export default App;
 

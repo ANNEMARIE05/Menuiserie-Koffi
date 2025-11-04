@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { openWhatsApp, openWhatsAppDevis } from '../utils/whatsapp';
+import { openWhatsAppDevis } from '../utils/whatsapp';
 
-const Contact = () => {
+export default function Contact() {
   const [donneesFormulaire, setDonneesFormulaire] = useState({
     name: '',
     email: '',
@@ -223,7 +223,5 @@ const Contact = () => {
       </div>
     </div>
   );
-};
-
-export default Contact;
+}
 

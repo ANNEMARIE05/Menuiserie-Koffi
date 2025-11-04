@@ -4,7 +4,7 @@ import Carousel from '../components/Carousel';
 import { products } from '../data/products';
 import { openWhatsApp } from '../utils/whatsapp';
 
-const ProductDetail = () => {
+export default function ProductDetail() {
   const { id } = useParams();
   const naviguer = useNavigate();
   const produit = products.find(p => p.id === parseInt(id));
@@ -89,6 +89,17 @@ const ProductDetail = () => {
                 </span>
               </div>
               
+              {produit.dimension && (
+                <div className="mb-4 sm:mb-6">
+                  <h2 className="text-lg sm:text-xl font-display font-semibold text-marron-800 mb-2 sm:mb-3">
+                    Dimensions
+                  </h2>
+                  <p className="text-sm sm:text-base text-gray-600">
+                    {produit.dimension}
+                  </p>
+                </div>
+              )}
+
               <div className="mb-4 sm:mb-6">
                 <h2 className="text-lg sm:text-xl font-display font-semibold text-marron-800 mb-2 sm:mb-3">
                   Description
@@ -174,7 +185,5 @@ const ProductDetail = () => {
       </div>
     </div>
   );
-};
-
-export default ProductDetail;
+}
 

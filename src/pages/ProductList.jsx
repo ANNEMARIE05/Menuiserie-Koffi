@@ -6,7 +6,7 @@ import { products } from '../data/products';
 
 const ITEMS_PER_PAGE = 10;
 
-const ProductList = () => {
+export default function ProductList() {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [filterCategory, setFilterCategory] = useState('Tous');
@@ -186,7 +186,5 @@ const ProductList = () => {
       </div>
     </DashboardLayout>
   );
-};
-
-export default ProductList;
+}
 

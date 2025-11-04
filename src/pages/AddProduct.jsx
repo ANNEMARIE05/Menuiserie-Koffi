@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
 import { categories } from '../data/products';
 
-const AddProduct = () => {
+export default function AddProduct() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
@@ -12,6 +12,7 @@ const AddProduct = () => {
     category: '',
     price: '',
     description: '',
+    dimension: '',
     longDescription: '',
     features: '',
     images: []
@@ -83,6 +84,7 @@ const AddProduct = () => {
         category: '',
         price: '',
         description: '',
+        dimension: '',
         longDescription: '',
         features: '',
         images: []
@@ -197,6 +199,20 @@ const AddProduct = () => {
                   />
                 </div>
 
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Dimensions
+                  </label>
+                  <input
+                    type="text"
+                    name="dimension"
+                    value={formData.dimension}
+                    onChange={handleChange}
+                    placeholder="Ex: 200x100cm ou Personnalisables"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-kaki-500 focus:border-transparent"
+                  />
+                </div>
+
                 <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Description longue
@@ -304,7 +320,5 @@ const AddProduct = () => {
       </div>
     </DashboardLayout>
   );
-};
-
-export default AddProduct;
+}
 

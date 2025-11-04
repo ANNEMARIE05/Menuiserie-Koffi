@@ -4,7 +4,7 @@ import Carousel from '../components/Carousel';
 import ProductCard from '../components/ProductCard';
 import { products } from '../data/products';
 
-const Home = () => {
+export default function Home() {
   const produitsVedette = products.slice(0, 3);
   const imagesHero = [
     "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=1200",
@@ -112,7 +112,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8 mb-6 sm:mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8 mb-6 sm:mb-8 auto-rows-fr">
             {produitsVedette.map((produit) => (
               <ProductCard key={produit.id} product={produit} />
             ))}
@@ -145,7 +145,5 @@ const Home = () => {
       </section>
     </div>
   );
-};
-
-export default Home;
+}
 

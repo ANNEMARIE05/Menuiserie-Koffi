@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const ScrollToTop = () => {
+export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
   // Afficher le bouton quand on scroll vers le bas
@@ -39,7 +39,5 @@ const ScrollToTop = () => {
       <i className="fas fa-arrow-up text-xl"></i>
     </button>
   );
-};
-
-export default ScrollToTop;
+}
 
