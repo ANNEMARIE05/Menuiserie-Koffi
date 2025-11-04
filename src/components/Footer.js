@@ -7,10 +7,10 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <div className="flex items-center space-x-2 mb-4">
+            <Link to="/login" className="flex items-center space-x-2 mb-4 hover:opacity-80 transition-opacity cursor-pointer">
               <i className="fas fa-hammer text-xl text-kaki-300"></i>
               <span className="text-xl font-display font-bold">Menuiserie Koffi</span>
-            </div>
+            </Link>
             <p className="text-gray-300 text-sm">
               Plus de 25 ans d'expérience dans l'artisanat du bois. Nous créons des meubles sur mesure 
               avec passion et savoir-faire traditionnel.
