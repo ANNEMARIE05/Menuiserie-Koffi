@@ -37,7 +37,7 @@ export default function Login() {
       // Enregistrer la session
       localStorage.setItem('isAuthenticated', 'true');
       localStorage.setItem('userPhone', telephoneNettoye);
-      localStorage.setItem('userName', 'Utilisateur Menuiserie Koffi');
+      localStorage.setItem('userName', 'Koffi');
       
       setChargement(false);
       navigate('/dashboard');

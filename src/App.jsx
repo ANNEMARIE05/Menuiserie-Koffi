@@ -15,11 +15,8 @@ import AddProduct from './pages/AddProduct';
 import ProductList from './pages/ProductList';
 import Profile from './pages/Profile';
 import Categories from './pages/Categories';
-import DashboardDevis from './pages/DashboardDevis';
 import ViewProduct from './pages/ViewProduct';
 import EditProduct from './pages/EditProduct';
-import ViewDevis from './pages/ViewDevis';
-import EditDevis from './pages/EditDevis';
 
 function AppContent() {
   const location = useLocation();
@@ -41,11 +38,8 @@ function AppContent() {
           <Route path="/dashboard/ajouter" element={<AddProduct />} />
           <Route path="/dashboard/liste-produits" element={<ProductList />} />
           <Route path="/dashboard/categories" element={<Categories />} />
-          <Route path="/dashboard/devis" element={<DashboardDevis />} />
           <Route path="/dashboard/produit/:id" element={<ViewProduct />} />
           <Route path="/dashboard/produit/:id/modifier" element={<EditProduct />} />
-          <Route path="/dashboard/devis/:id" element={<ViewDevis />} />
-          <Route path="/dashboard/devis/:id/modifier" element={<EditDevis />} />
           <Route path="/dashboard/profil" element={<Profile />} />
         </Routes>
       </main>

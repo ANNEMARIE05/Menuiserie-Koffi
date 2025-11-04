@@ -18,11 +18,11 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
   if (totalPages <= 1) return null;
 
   return (
-    <div className="flex items-center justify-center space-x-2 mt-6">
+    <div className="flex items-center justify-center space-x-1 sm:space-x-1.5 md:space-x-2 mt-4 sm:mt-5 md:mt-6">
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="px-3 py-2 border border-gray-300 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors"
+        className="px-2 sm:px-2.5 md:px-3 py-1.5 sm:py-2 text-xs sm:text-sm border border-gray-300 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors"
       >
         <i className="fas fa-chevron-left"></i>
       </button>
@@ -31,12 +31,12 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
         <>
           <button
             onClick={() => onPageChange(1)}
-            className="px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            className="px-2 sm:px-2.5 md:px-3 py-1.5 sm:py-2 text-xs sm:text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
           >
             1
           </button>
           {startPage > 2 && (
-            <span className="px-2 text-gray-500">...</span>
+            <span className="px-1 sm:px-1.5 md:px-2 text-xs sm:text-sm text-gray-500">...</span>
           )}
         </>
       )}
@@ -45,7 +45,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
         <button
           key={page}
           onClick={() => onPageChange(page)}
-          className={`px-4 py-2 border rounded-lg transition-colors ${
+          className={`px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 text-xs sm:text-sm md:text-base border rounded-lg transition-colors ${
             currentPage === page
               ? 'bg-kaki-600 text-white border-kaki-600'
               : 'border-gray-300 hover:bg-gray-50'
@@ -58,11 +58,11 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
       {endPage < totalPages && (
         <>
           {endPage < totalPages - 1 && (
-            <span className="px-2 text-gray-500">...</span>
+            <span className="px-1 sm:px-1.5 md:px-2 text-xs sm:text-sm text-gray-500">...</span>
           )}
           <button
             onClick={() => onPageChange(totalPages)}
-            className="px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            className="px-2 sm:px-2.5 md:px-3 py-1.5 sm:py-2 text-xs sm:text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
           >
             {totalPages}
           </button>
@@ -72,7 +72,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="px-3 py-2 border border-gray-300 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors"
+        className="px-2 sm:px-2.5 md:px-3 py-1.5 sm:py-2 text-xs sm:text-sm border border-gray-300 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors"
       >
         <i className="fas fa-chevron-right"></i>
       </button>

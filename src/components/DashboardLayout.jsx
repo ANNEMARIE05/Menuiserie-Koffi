@@ -58,45 +58,46 @@ export default function DashboardLayout({ children }) {
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
         {/* Header du Dashboard */}
         <div className="bg-marron-700 text-white shadow-lg sticky top-0 z-30">
-          <div className="px-4 py-4">
+          <div className="px-2 sm:px-4 py-2 sm:py-4">
             <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-2 sm:space-x-3">
                 <button
                   onClick={() => setSidebarOpen(!sidebarOpen)}
                   className="lg:hidden text-white hover:text-kaki-300 transition-colors"
                 >
-                  <i className="fas fa-bars text-xl"></i>
+                  <i className="fas fa-bars text-lg sm:text-xl"></i>
                 </button>
               </div>
-              <div className="flex items-center space-x-4 dropdown-container relative">
+              <div className="flex items-center space-x-2 sm:space-x-4 dropdown-container relative">
                 <div className="relative">
                   <button
                     onClick={() => setDropdownOpen(!dropdownOpen)}
-                    className="flex items-center space-x-2 px-4 py-2 bg-marron-600 hover:bg-marron-500 rounded-lg transition-colors"
+                    className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-4 py-1.5 sm:py-2 bg-marron-600 hover:bg-marron-500 rounded-lg transition-colors text-sm sm:text-base"
+                    title={userName || 'Koffi'}
                   >
-                    <i className="fas fa-user-circle text-xl"></i>
-                    <span>Koffi</span>
-                    <i className={`fas fa-chevron-down text-xs transition-transform ${dropdownOpen ? 'rotate-180' : ''}`}></i>
+                    <i className="fas fa-user-circle text-lg sm:text-xl"></i>
+                    <span className="hidden sm:inline">{userName || 'Koffi'}</span>
+                    <i className={`fas fa-chevron-down text-xs transition-transform ${dropdownOpen ? 'rotate-180' : ''} hidden sm:inline`}></i>
                   </button>
 
                   {/* Dropdown Menu */}
                   {dropdownOpen && (
-                    <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50 border border-gray-200">
+                    <div className="absolute right-0 mt-2 w-40 sm:w-48 bg-white rounded-lg shadow-lg py-1 sm:py-2 z-50 border border-gray-200">
                       <button
                         onClick={() => {
                           setDropdownOpen(false);
                           navigate('/dashboard/profil');
                         }}
-                        className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 flex items-center space-x-2"
+                        className="w-full text-left px-3 sm:px-4 py-1.5 sm:py-2 text-gray-700 hover:bg-gray-100 flex items-center space-x-2 text-sm sm:text-base"
                       >
-                        <i className="fas fa-user text-kaki-600 w-4"></i>
+                        <i className="fas fa-user text-kaki-600 w-4 text-xs sm:text-sm"></i>
                         <span>Profil</span>
                       </button>
                       <button
                         onClick={handleLogout}
-                        className="w-full text-left px-4 py-2 text-red-600 hover:bg-red-50 flex items-center space-x-2"
+                        className="w-full text-left px-3 sm:px-4 py-1.5 sm:py-2 text-red-600 hover:bg-red-50 flex items-center space-x-2 text-sm sm:text-base"
                       >
-                        <i className="fas fa-sign-out-alt w-4"></i>
+                        <i className="fas fa-sign-out-alt w-4 text-xs sm:text-sm"></i>
                         <span>Déconnexion</span>
                       </button>
                     </div>
