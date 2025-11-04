@@ -1,40 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import DashboardLayout from '../components/DashboardLayout';
 import { products } from '../data/products';
 
 const Dashboard = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [userPhone, setUserPhone] = useState('');
-  const [userName, setUserName] = useState('');
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    // Vérifier l'authentification
-    const auth = localStorage.getItem('isAuthenticated');
-    const phone = localStorage.getItem('userPhone');
-    const name = localStorage.getItem('userName');
-
-    if (auth === 'true' && phone) {
-      setIsAuthenticated(true);
-      setUserPhone(phone);
-      setUserName(name || 'Utilisateur');
-    } else {
-      navigate('/login');
-    }
-  }, [navigate]);
-
-  const handleLogout = () => {
-    localStorage.removeItem('isAuthenticated');
-    localStorage.removeItem('userPhone');
-    localStorage.removeItem('userName');
-    navigate('/login');
-  };
-
-  if (!isAuthenticated) {
-    return null;
-  }
-
   // Statistiques
   const totalProduits = products.length;
   const categories = [...new Set(products.map(p => p.category))];
@@ -42,32 +11,7 @@ const Dashboard = () => {
   const prixMoyen = Math.round(products.reduce((sum, p) => sum + p.price, 0) / products.length);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header du Dashboard */}
-      <div className="bg-marron-700 text-white shadow-lg">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <i className="fas fa-hammer text-2xl text-kaki-300"></i>
-              <h1 className="text-xl font-display font-bold">Dashboard Menuiserie Koffi</h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className="text-right">
-                <p className="text-sm text-gray-300">{userName}</p>
-                <p className="text-xs text-gray-400">{userPhone}</p>
-              </div>
-              <button
-                onClick={handleLogout}
-                className="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg transition-colors text-sm"
-              >
-                <i className="fas fa-sign-out-alt mr-2"></i>
-                Déconnexion
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
+    <DashboardLayout>
       <div className="container mx-auto px-4 py-8">
         {/* Statistiques */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -231,7 +175,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-    </div>
+    </DashboardLayout>
   );
 };
 

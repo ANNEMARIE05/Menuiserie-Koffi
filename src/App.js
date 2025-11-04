@@ -11,10 +11,19 @@ import Contact from './pages/Contact';
 import Devis from './pages/Devis';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import AddProduct from './pages/AddProduct';
+import ProductList from './pages/ProductList';
+import Profile from './pages/Profile';
+import Categories from './pages/Categories';
+import DashboardDevis from './pages/DashboardDevis';
+import ViewProduct from './pages/ViewProduct';
+import EditProduct from './pages/EditProduct';
+import ViewDevis from './pages/ViewDevis';
+import EditDevis from './pages/EditDevis';
 
 function AppContent() {
   const location = useLocation();
-  const isAuthPage = location.pathname === '/login' || location.pathname === '/dashboard';
+  const isAuthPage = location.pathname === '/login' || location.pathname.startsWith('/dashboard');
   
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
@@ -29,6 +38,15 @@ function AppContent() {
           <Route path="/devis" element={<Devis />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/ajouter" element={<AddProduct />} />
+          <Route path="/dashboard/liste-produits" element={<ProductList />} />
+          <Route path="/dashboard/categories" element={<Categories />} />
+          <Route path="/dashboard/devis" element={<DashboardDevis />} />
+          <Route path="/dashboard/produit/:id" element={<ViewProduct />} />
+          <Route path="/dashboard/produit/:id/modifier" element={<EditProduct />} />
+          <Route path="/dashboard/devis/:id" element={<ViewDevis />} />
+          <Route path="/dashboard/devis/:id/modifier" element={<EditDevis />} />
+          <Route path="/dashboard/profil" element={<Profile />} />
         </Routes>
       </main>
       {!isAuthPage && <Footer />}
